@@ -1,0 +1,44 @@
+ <div class="table-responsive">
+  <form method="post" action="/items/add">
+    <table class="table table-condensed">
+      <tbody>
+       <tr>
+        <th width="200">Id: </th>
+        <td><input type="number" name="iid" required 
+              placeholder="Enter item Id"></td>
+       </tr>
+       <tr>
+         <th>Item Name: </th>
+         <td><input type="text" name="itemName" required 
+              placeholder="Enter Item Name"></td>
+       </tr>
+       <tr>
+         <th>Item Description: </th>
+         <td><input type="text" name="itemDescription" required
+              placeholder="Enter Item Description"></td>
+       </tr>
+       <tr>
+         <th>Item Price: </th>
+         <td><input type="number" name="itemPrice" required
+              placeholder="Enter Item Price"></td>
+       </tr>
+       <tr>
+         <th>Item Quantity: </th>
+         <td><input type="number" name="itemQty" required
+              placeholder="Enter Item Quantity"></td>
+       </tr>
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+           <input type="submit" value="Save" 
+              class="btn btn-success">
+           <input type="button" value="Cancel" 
+              class="btn btn-danger" onclick="cancelAdd()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

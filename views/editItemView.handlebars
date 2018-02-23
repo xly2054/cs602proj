@@ -1,0 +1,43 @@
+<div class="table-responsive">
+  <form method="post" action='/items/edit/{{data.id}}'>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th width="200">Id: </td>
+          <td><input type="number" name="iid" required 
+                  value="{{data.iid}}"></td>
+        </tr>
+        <tr>
+          <th>Item Name: </td>
+          <td><input type="text" name="itemName" required size="40" 
+                  value="{{data.itemName}}"></td>
+        </tr>
+        <tr>
+          <th>Item Description: </td>
+          <td><input type="text" name="itemDescription" size="40" 
+                  value="{{data.itemDescription}}"></td>
+        </tr>
+        <tr>
+          <th>Item Price: </td>
+          <td><input type="number" name="itemPrice" size="40" 
+                  value="{{data.itemPrice}}"></td>
+        </tr>
+        <tr>
+          <th>Item Quantity: </td>
+          <td><input type="number" name="itemQty" size="40" 
+                  value="{{data.itemQuantity}}"></td>
+        </tr>
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+              <input type="submit" value="Save" class="btn btn-success">
+              <input type="button" value="Cancel" class="btn btn-danger"
+                  class="cancel" onclick="cancelAdd()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

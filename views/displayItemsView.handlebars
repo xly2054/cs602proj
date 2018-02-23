@@ -1,0 +1,38 @@
+<div>
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Item Name</th>
+					<th>Item Description</th>
+					<th>Item Price</th>
+					<th>Item Quantity</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each data}}
+					<tr>
+						<td>{{this.iid}}</td>
+						<td>{{this.itemName}}</td>
+						<td>{{this.itemDescription}}</td>
+						<td>{{this.itemPrice}}</td>
+						<td>{{this.itemQuantity}}</td>
+						</td>
+						<td>
+							<a href="/items/edit/{{this.id}}">Edit</a>
+							<a href="items/delete/{{this.id}}">Delete</a>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+			<tfooter>
+				<tr><td>
+				<button class="btn btn-primary" 
+						onClick="addItem();">Add</button>
+				</td></tr>
+			</tfooter>
+		</table>
+	</div>
+</div>
