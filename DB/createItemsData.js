@@ -14,7 +14,7 @@ var connection = mongoose.createConnection(dbUrl, {
 var itemDb = require('./dbConnection.js');
 
 //Create connection
-var Item = itemDb.getModel(connection);
+var Item = itemDb.getItemModel(connection);
 
 connection.on("open", function(){
 	

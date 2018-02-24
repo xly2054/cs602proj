@@ -1,5 +1,5 @@
-var DB = require('./dbConnection.js');
-var Item = DB.getModel();
+var DB = require('../../DB/dbConnection.js');
+var Item = DB.getItemModel();
 
 module.exports = 
 

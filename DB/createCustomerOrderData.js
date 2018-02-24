@@ -14,68 +14,68 @@ var connection = mongoose.createConnection(dbUrl, {
 var customerDb = require('./dbConnection.js');
 
 //Create connection
-var CustomerOrder = customerDb.getCustomerModel(connection);
+var CustomerOrder = customerDb.getOrderModel(connection);
 
 connection.on("open", function(){
 	
 	// create and save document objects
 	var customerorder;
 
-	customerorder = new Customerorder({
+	customerorder = new CustomerOrder({
 		Id: 1,
 		cid: 1
 	}); 
 	customerorder.save();
 
-	customerorder = new Customerorder({
+	customerorder = new CustomerOrder({
 		Id: 2,
 		cid: 1
 	}); 
 	customerorder.save();
 
-	customerorder = new Customerorder({
+	customerorder = new CustomerOrder({
 		Id: 3,
 		cid: 2
 	}); 
 	customerorder.save();
 
-	customerorder = new Customerorder({
+	customerorder = new CustomerOrder({
 		Id: 4,
 		cid: 1
 	}); 
     customerorder.save();
     
-    customerorder = new Customerorder({
+    customerorder = new CustomerOrder({
 		Id: 5,
 		cid: 1
 	}); 
     customerorder.save();
     
-    customerorder = new Customerorder({
+    customerorder = new CustomerOrder({
 		Id: 6,
 		cid: 3
 	}); 
     customerorder.save();
     
-    customerorder = new Customerorder({
+    customerorder = new CustomerOrder({
 		Id: 7,
 		cid: 4
 	}); 
     customerorder.save();
     
-    customerorder = new Customerorder({
+    customerorder = new CustomerOrder({
 		Id: 8,
 		cid: 2
 	}); 
     customerorder.save();
     
-    customerorder = new Customerorder({
+    customerorder = new CustomerOrder({
 		Id: 9,
 		cid: 1
 	}); 
     customerorder.save();
     
-    customerorder = new Customerorder({
+    customerorder = new CustomerOrder({
 		Id: 10,
 		cid: 3
 	}); 

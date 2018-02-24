@@ -1,4 +1,4 @@
-var DB = require('./dbConnection.js');
+var DB = require('../DB/dbConnection.js');
 var adminCustomerOrder = DB.getCustomerModel();
 
 module.exports = 

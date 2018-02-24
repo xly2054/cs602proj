@@ -1,0 +1,66 @@
+<div>
+	<table id="AdminItemsTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>ItemName</th>
+				<th>ItemDescription</th>
+				<th>ItemPrice</th>
+				<th>ItemQuantity</th>
+                <th>RefId</th>
+				<th></th>
+                <th></th>
+			</tr>
+		</thead>
+	</table>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#AdminItemsTable').DataTable({
+  		processing : true,
+  		serverSide : true,
+      	ajax : { url: '/data/get/items'},
+		  columns : [
+		  	{ data : "Id" },
+		    { data : "ItemName" },
+		    { data : "ItemDescription" },
+		    { data : "ItemPrice" },
+		    { data : "ItemQuantity"},
+            { data : "_id" },
+			{
+				class : 'Edit',
+                orderable:      false,
+                data:           null,
+                defaultContent: '<button class="btn btn-success">Edit</button>'
+			},
+            {
+				class : 'Delete',
+                orderable:      false,
+                data:           null,
+                defaultContent: '<button class="btn btn-danger">Delete</button>'
+			}
+		  ]
+		});
+
+        $('#AdminItemsTable tbody').on( 'click', 'tr td.Edit', function () {
+            //var Name = $(this).closest('tr').find('.ItemName').text();
+            var refId = $(this).prev().text();
+            window.location.href = '/items/edit/' + refId;
+        });
+
+        $('#AdminItemsTable tbody').on( 'click', 'tr td.Delete', function () {
+            var refId = $(this).prev().text();
+            window.location.href = '/items/delete/' + refId;
+        });
+	});
+	</script>
+    <tfooter>
+				<tr><td>
+				<button class="btn btn-primary" 
+						onClick="addItem();">Add</button>
+				</td>
+                <td>
+				<button class="btn btn-primary" 
+						onClick="ManageCustomerOders();">Manage Customer Orders</button>
+				</td></tr>
+	</tfooter>
+</div>
