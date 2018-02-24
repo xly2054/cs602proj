@@ -18,3 +18,7 @@ function gotoadmin(){
 function placeOrder(){
     window.location.href = '/customers/:id/cart';
 }
+
+function ManageCustomerOders(){
+    window.location.href = '/admin/customerlist'
+}

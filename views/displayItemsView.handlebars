@@ -22,7 +22,7 @@
 						</td>
 						<td>
 							<a href="/items/edit/{{this.id}}">Edit</a>
-							<a href="items/delete/{{this.id}}">Delete</a>
+							<a href="/items/delete/{{this.id}}">Delete</a>
 						</td>
 					</tr>
 				{{/each}}
@@ -31,6 +31,13 @@
 				<tr><td>
 				<button class="btn btn-primary" 
 						onClick="addItem();">Add</button>
+				</td></tr>
+
+				<tr><td></td></tr>
+
+				<tr><td>
+				<button class="btn btn-primary" 
+						onClick="ManageCustomerOders();">Manage Customer Orders</button>
 				</td></tr>
 			</tfooter>
 		</table>

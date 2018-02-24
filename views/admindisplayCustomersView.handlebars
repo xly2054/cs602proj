@@ -3,15 +3,16 @@
 		<table class="table table-condensed">
 			<thead>
 				<tr>
-					<th>Order Id</th>
+					<th>Id</th>
+					<th>Customer Name</th>
 				</tr>
 			</thead>
 			<tbody>
 				{{#each data}}
 					<tr>
-						<td>{{this.coid}}</td>
+						<td>{{this.cid}}</td>
 						<td>
-							<a href="/customers/{{this.id}}/orderlist">{{this.customerName}}</a>
+							<a href="/admin/customerlist">{{this.customerName}}</a>
 						</td>
 					</tr>
 				{{/each}}

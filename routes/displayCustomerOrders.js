@@ -12,7 +12,6 @@ module.exports =
       var results = customerorders.map(function (customerorder){
       	return {
             id: customerorder._id,
-            //oid: order.Id,
             coid: customerorder.Id,
       	}
       });
