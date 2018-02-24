@@ -32,7 +32,7 @@ module.exports =
                 ItemQty :qty,
                 SubTotal : qty * req.body.itemPrice
               };
-              customer.Order = order;
+              customer.Order.push(order);
               customer.save(function (err) {
                 if (err)
                   console.log("Error updating : %s ",err );
