@@ -1,11 +1,11 @@
 var DB = require('../DB/dbConnection.js');
-var adminCustomerOrder = DB.getCustomerModel();
+var adminCustomerOrder = DB.getOrderModel();
 
 module.exports = 
 
     //display all customers from data collection
 	function admindisplayCustomerOrders(req , res , next){
-    adminCustomerOrder.find({}, function(err , admincustomerorders){
+    adminCustomerOrder.find({cid:req.params.id}, function(err , admincustomerorders){
       if(err)
           console.log("Error : %s ",err);
 

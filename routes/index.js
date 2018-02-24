@@ -53,10 +53,10 @@ router.get('/admin/customerlist', admindisplayCustomers);
 
 router.get('/admin/customers/:id/orderlist', admindisplayCustomerOrders);
 
-//router.get('/admin/:cid/edit/:coid', 	adminupdateCustomerOrders);
-//router.post('/admin/:cid/edit/:coid', 	adminsaveafterEditCustomerOrders);
+//router.get('/admin/edit/:coid', 	adminupdateCustomerOrders);
+//router.post('/admin/edit/:coid', 	adminsaveafterEditCustomerOrders);
 
-router.get('admin/:cid/delete/:coid', admindeleteCustomerOrders);
+router.get('/admin/delete/:coid', admindeleteCustomerOrders);
 
 
 //Data Routes
