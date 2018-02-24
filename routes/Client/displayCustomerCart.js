@@ -1,32 +1,25 @@
 var DB = require('../../DB/dbConnection.js');
-var Cart = DB.getCartModel();
+var Customer = DB.getCustomerModel();
 
 module.exports = 
 
     //display all items from data collection
 	function displayCustomerCart(req , res , next){
         var custid = req.params.id;
-        Cart.find({cid : custid}, function(err , orders){
-            if (!orders){
-                var cart = new Cart;
-                cart.cid = custid;
-                //cart.Date = current;
-                cart.save();
-            } else {
+        Customer.findById(custid, function(err , customer){
             if(err)
                 console.log("Error : %s ",err);
                 //{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: Number}
-                var results = orders.map(function (order){
+                var results = customer.Order.map(function (order){
                     return {
-                      order_ItemName: Order.ItemName,
-                      order_ItemPrice: Order.ItemPrice,
-                      order_ItemQty: Order.ItemQty,
-                      order_subTotal: Order.SubTotal
+                      order_ItemName: order.ItemName,
+                      order_ItemPrice: order.ItemPrice,
+                      order_ItemQty: order.ItemQty,
+                      order_subTotal: order.SubTotal
                     }
                 });
-            }
-
-        res.render('Client/displayCustomerCartView',
-      	    {title:"Shopping Cart", custid, data:results});
-    });
-};
+                
+            res.render('Client/displayCustomerCartView',
+                {title:"Shopping Cart", custid, data:results});
+            });
+    }

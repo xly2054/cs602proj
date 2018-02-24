@@ -15,11 +15,11 @@ var displayCustomerCart = require("./Client/displayCustomerCart");
 //var PlaceOrder = require("./PlaceOrder");
 var displayCustomerOrders = require("./displayCustomerOrders");
 //var displayCustomerOrderById = require("./displayCustomerOrderById");
-var admindisplayCustomers = require("./admindisplayCustomers")
-var admindisplayCustomerOrders = require("./admindisplayCustomerOrders")
-var adminupdateCustomerOrders = require("./adminupdateCustomerOrders")
+var admindisplayCustomers = require("./Admin/admindisplayCustomers")
+var admindisplayCustomerOrders = require("./Admin/admindisplayCustomerOrders")
+var adminupdateCustomerOrders = require("./Admin/adminupdateCustomerOrders")
 //var adminsaveafterEditCustomerOrders = require("./adminsaveafterEditCustomerOrders")
-var admindeleteCustomerOrders = require("./admindeleteCustomerOrders")
+var admindeleteCustomerOrders = require("./Admin/admindeleteCustomerOrders")
 
 //Data Modules
 var DAO = require("./DAO/dataAccess");
@@ -43,7 +43,8 @@ router.get('/items/delete/:id', deleteItem);
 router.get('/customers',         displayCustomers);
 
 router.get('/customers/:id/cart', displayCustomerCart);
-router.post('/customer/:id/cart/add', AddToCart);
+router.get('/customer/:id/cart/add/:itemid/:itemqty', AddToCart);
+//router.post('/customer/:id/cart/add', AddToCart);
 //router.post('customers/:id/cart', PlaceOrder);
 
 router.get('/customers/:id/orderlist', displayCustomerOrders);

@@ -26,17 +26,18 @@ var itemSchema = new Schema({
 //Schema for customer document
 var customerSchema = new Schema({
 	Id: Number,
-	CustomerName: String
+	CustomerName: String,
+	Order: [
+		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: String}
+	]
 });
 
 //Schema for cart document
 var cartSchema = new Schema({
 	cid: String,
-	Date: Date,
 	Order: [
 		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: Number}
-	],
-	OrderTotal: Number
+	]
 });
 
 //Schema for order document

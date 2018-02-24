@@ -17,5 +17,23 @@ var cartDb = require('./dbConnection.js');
 var Cart = cartDb.getCartModel(connection);
 
 connection.on("open", function(){
-	
+	var cart = new Cart({
+        cid : 'aaaa'
+      });
+      cart.save();
+
+      var cart = new Cart({
+        cid : 'bbbb'
+      });
+      cart.save();
+      var cart = new Cart({
+        cid : 'cccc'
+      });
+      cart.save();
+
+      cart.save(function(err) {
+		connection.close();
+		if (err) throw err;
+		console.log("Success!");
+	});
 });
