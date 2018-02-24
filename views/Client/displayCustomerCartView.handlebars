@@ -11,11 +11,11 @@
 				<th>ItemPrice</th>
 				<th>ItemQuantity</th>
                 <th>RefId</th>
-				<th>Qty to Order</th>
+				<th></th>
                 <th></th>
 			</tr>
 		</thead>
-	</table>
+		<tbody>
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$('#ClientItemsTable').DataTable({
@@ -23,44 +23,42 @@
 			serverSide : true,
 			ajax : { url: '/data/get/items'},
 			columns : [
-				{ data : "Id" },
-				{ data : "ItemName" },
-				{ data : "ItemDescription" },
-				{ data : "ItemPrice" },
-				{ data : "ItemQuantity"},
-				{ data : "_id" },
-				{
-					class : 'Qty',
-					orderable:      false,
-					data:           null,
-					defaultContent: '<input type="Number" name="itemQty" maxlength="4" size="4">'
-				},
+		  		{ data : "Id" },
+		    	{ data : "ItemName" },
+		    	{ data : "ItemDescription" },
+		    	{ data : "ItemPrice" },
+		    	{ data : "ItemQuantity"},
+            	{ data : "_id" },
 				{
 					class : 'AddToCart',
 					orderable:      false,
 					data:           null,
 					defaultContent: '<button class="btn btn-success">Add To Cart</button>'
+				},
+				{
+					class : 'Qty',
+					orderable:      false,
+					data:           null,
+					defaultContent: '<input type="Number" name="itemQty" value="1">'
 				}
+
 			]
 			});
 
 			$('#ClientItemsTable tbody').on( 'click', 'tr td.AddToCart', function () {
 				var refId = $(this).prev().text();
-				var qty = $(this).prev().text();
-				var price = $(this).prev().text();
-				var name = $(this).prev().prev()text();
-				console.log(name,price,qty);
-				document.getElementById("itemQty").value = qty;
-				document.getElementById("itemPrice").value = price;
-				document.getElementById("itemName").value = name;
+				alert(refId);
+				document.getElementById("refId").value = refId;
 				var event = new Event('submit');
 			});
 		});
 		</script>
+		</tbody>
+		</table>
 		</div>
 		<div>
 			<br><b>Customer Cart</b><br>
-		<table class="table table-striped table-bordered" cellspacing="0" width="100%">
+		<table class="table table-striped table-bordered" cellspacing="0" width="60%">
 		<thead>
 			<tr>
 				<th>ItemName</th>

@@ -1,13 +1,18 @@
 var DB = require('../../DB/dbConnection.js');
+var Item = DB.getItemModel();
 var Cart = DB.getCartModel();
 
 module.exports = 
   //update document in database 
   function addItemtoCart(req , res , next){
     var id = req.params.id;
+    var itemId = req.body.refId;
+    console.log(itemId);
+    var doc = Item.findById(itemId);
+    console.log(doc);
 
     //update item if found, return 404 otherwise
-    Cart.findById(id, function (err, cart){
+    Cart.find({cid:id}, function (err, cart){
       if(err)
         console.log("Error Selecting : %s ", err); 
       if (!cart){
@@ -17,9 +22,9 @@ module.exports =
         cart.save();
         }
         var order = {
-          ItemName : req.body.itemName,
-          ItemPrice: req.body.itemPrice,
-          ItemQty : req.body.itemQty,
+          ItemName : doc.ItemName,
+          ItemPrice: doc.ItemPrice,
+          ItemQty :req.body.itemQty,
           SubTotal : req.body.itemQty * req.body.itemPrice
         };
         cart.Order = order;

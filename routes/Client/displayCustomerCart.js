@@ -8,10 +8,10 @@ module.exports =
         var custid = req.params.id;
         Cart.find({cid : custid}, function(err , orders){
             if (!orders){
-                var orders = new Cart;
-                orders.cid = req.params.id;
+                var cart = new Cart;
+                cart.cid = custid;
                 //cart.Date = current;
-                orders.save();
+                cart.save();
             } else {
             if(err)
                 console.log("Error : %s ",err);
