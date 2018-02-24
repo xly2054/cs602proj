@@ -9,7 +9,7 @@ var saveItem 			= require("./Admin/saveItem");
 var editItem 			= require("./Admin/editItem");
 var saveAfterEdit 	= require("./Admin/saveAfterEdit");
 var deleteItem 		= require("./Admin/deleteItem");
-//var addtocart = require("./addtocart");
+var AddToCart = require("./Client/addItemToCart");
 var displayCustomers = require("./displayCustomers");
 var displayCustomerCart = require("./Client/displayCustomerCart");
 //var PlaceOrder = require("./PlaceOrder");
@@ -43,6 +43,7 @@ router.get('/items/delete/:id', deleteItem);
 router.get('/customers',         displayCustomers);
 
 router.get('/customers/:id/cart', displayCustomerCart);
+router.post('/customer/:id/cart/add', AddToCart);
 //router.post('customers/:id/cart', PlaceOrder);
 
 router.get('/customers/:id/orderlist', displayCustomerOrders);

@@ -23,17 +23,29 @@ var itemSchema = new Schema({
 	ItemQuantity: Number
 });
 
-//Schema for custmer document
+//Schema for customer document
 var customerSchema = new Schema({
 	Id: Number,
 	CustomerName: String
 });
 
+//Schema for cart document
+var cartSchema = new Schema({
+	cid: String,
+	Date: Date,
+	Order: [
+		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: Number}
+	],
+	OrderTotal: Number
+});
+
 //Schema for order document
 var orderSchema = new Schema({
 	Id: Number,
-	cid: Number
+	cid: Number,
+	History: [ {Order : cartSchema }]
 });
+
 
 //Export model method, create connection if not connected to database
 module.exports = {	
@@ -74,6 +86,19 @@ module.exports = {
 			
 		};
 		model = connection.model("ordermodels", orderSchema);
+		return model;
+	},
+	getCartModel: function getCartModel() {
+		if (connection == null) {
+			console.log("Creating connection and model...");
+			connection = mongoose.createConnection(dbUrl, {
+                auth: {
+                 user: credentials.username,
+                 password: credentials.password,
+                }});
+			
+		};
+		model = connection.model("cartmodels", cartSchema);
 		return model;
 	}
 };
