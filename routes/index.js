@@ -17,7 +17,7 @@ var displayCustomerOrders = require("./displayCustomerOrders");
 //var displayCustomerOrderById = require("./displayCustomerOrderById");
 var admindisplayCustomers = require("./admindisplayCustomers")
 var admindisplayCustomerOrders = require("./admindisplayCustomerOrders")
-//var adminupdateCustomerOrders = require("./adminupdateCustomerOrders")
+var adminupdateCustomerOrders = require("./adminupdateCustomerOrders")
 //var adminsaveafterEditCustomerOrders = require("./adminsaveafterEditCustomerOrders")
 var admindeleteCustomerOrders = require("./admindeleteCustomerOrders")
 
@@ -53,7 +53,7 @@ router.get('/admin/customerlist', admindisplayCustomers);
 
 router.get('/admin/customers/:id/orderlist', admindisplayCustomerOrders);
 
-//router.get('/admin/edit/:coid', 	adminupdateCustomerOrders);
+router.get('/admin/edit/:coid', 	adminupdateCustomerOrders);
 //router.post('/admin/edit/:coid', 	adminsaveafterEditCustomerOrders);
 
 router.get('/admin/delete/:coid', admindeleteCustomerOrders);
