@@ -5,7 +5,7 @@ var Order = DB.getOrderModel();
 var Cart = DB.getCartModel();
 var dataTable = require('mongoose-datatable');
 
-
+//Reteive data from Mongo
 module.exports = {
     //display all items from data collection
 	getItems : function getItems(req , res){
