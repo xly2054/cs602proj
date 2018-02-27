@@ -1,6 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var handlebars = require('express-handlebars');
+var util 		= require('util'); //Used to debug - inspect cmd
+var http 		= require('http');
+var path        = require('path');
 
 var app = express();
 
