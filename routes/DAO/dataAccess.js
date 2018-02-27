@@ -2,7 +2,6 @@ var DB = require('../../DB/dbConnection.js');
 var Item = DB.getItemModel();
 var Customer = DB.getCustomerModel();
 var Order = DB.getOrderModel();
-var Cart = DB.getCartModel();
 var dataTable = require('mongoose-datatable');
 
 //Reteive data from Mongo
@@ -13,9 +12,9 @@ module.exports = {
             res.send(items);
         });
     },
-    getCart : function getItems(req , res){
-        Cart.dataTable(req.query, function (err, items) {
-            res.send(items);
+    getCustomers : function getCustomers(req , res){
+        Customer.dataTable(req.query, function (err, customers) {
+            res.send(customers);
         });
     },
 };
