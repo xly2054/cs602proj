@@ -18,11 +18,8 @@ module.exports =
                       order_subTotal: order.SubTotal
                     }
                 });
-                var orderTotal = 0;
-                for (i = 0; i < customer.Order.length; i++) {  
-                    orderTotal += customer.Order[i].SubTotal;
-                }
+                
             res.render('Client/displayCustomerCartView',
-                {title:"Shopping Cart", custid, data:results, orderTotal});
+                {title:"Shopping Cart", custid, data:results});
             });
     }

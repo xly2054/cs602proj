@@ -1,11 +1,11 @@
 <div>
 	<table id="AdminItemsTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th>Id</th>
 				<th>ItemName</th>
 				<th>ItemDescription</th>
-				<th>ItemPrice</th>
+				<th>ItemPrice($)</th>
 				<th>ItemQuantity</th>
                 <th>RefId</th>
 				<th></th>
@@ -24,20 +24,20 @@
 		  	{ data : "Id" },
 		    { data : "ItemName" },
 		    { data : "ItemDescription" },
-		    { data : "ItemPrice" },
+		    { data : "ItemPrice", render: $.fn.dataTable.render.number( ',', '.', 2 ) },
 		    { data : "ItemQuantity"},
             { data : "_id" },
 			{
 				class : 'Edit',
                 orderable:      false,
                 data:           null,
-                defaultContent: '<button class="btn btn-success btn-sm">Edit</button>'
+                defaultContent: '<button class="btn btn-dark btn-sm">Edit</button>'
 			},
             {
 				class : 'Delete',
                 orderable:      false,
                 data:           null,
-                defaultContent: '<button class="btn btn-danger btn-sm">Delete</button>'
+                defaultContent: '<button class="btn btn-secondary btn-sm">Delete</button>'
 			}
 		  ]
 		});
@@ -56,11 +56,11 @@
 	</script>
     <tfooter>
 				<tr><td>
-				<button class="btn btn-primary" 
+				<button class="btn btn-dark btn-lg" 
 						onClick="addItem();">Add</button>
 				</td>
                 <td>
-				<button class="btn btn-primary" 
+				<button class="btn btn-dark btn-lg" 
 						onClick="ManageCustomerOders();">Manage Customer Orders</button>
 				</td></tr>
 	</tfooter>

@@ -24,13 +24,14 @@ module.exports =
         if(err)
           console.log("Error Selecting : %s ", err);
           var Customer = DB.getCustomerModel();
+          //var totalprice = parseInt(qty) * parseFloat(doc.ItemPrice);
           //update item if found, return 404 otherwise
           Customer.findById(id, function (err, customer){
               var order = {
                 ItemName : doc.ItemName,
                 ItemPrice: doc.ItemPrice,
                 ItemQty :qty,
-                SubTotal : qty * req.body.itemPrice
+                SubTotal : parseFloat(qty * doc.ItemPrice).toFixed(2)
               };
               customer.Order.push(order);
               customer.save(function (err) {

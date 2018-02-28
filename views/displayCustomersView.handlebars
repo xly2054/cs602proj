@@ -1,10 +1,11 @@
 <div>
 	<div class="table-responsive">
-		<table class="table table-condensed">
-			<thead>
+		<table class="table table-striped table-bordered table-hover">
+			<thead class="thead-dark">
 				<tr>
 					<th>Id</th>
 					<th>Customer Name</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -13,6 +14,12 @@
 						<td>{{this.cid}}</td>
 						<td>
 							<a href="customers/{{this.id}}/cart">{{this.customerName}}</a>
+						</td>
+						<td>
+							<form>
+  								<input type="button" class="btn btn-dark btn-sm" value="Go Shopping" onclick="location.href='customers/{{this.id}}/cart'"/>
+  								<input type="button" class="btn btn-secondary btn-sm" value="View History" onclick="location.href='#'"/>
+							</form>
 						</td>
 					</tr>
 				{{/each}}

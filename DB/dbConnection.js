@@ -28,7 +28,7 @@ var customerSchema = new Schema({
 	Id: Number,
 	CustomerName: String,
 	Order: [
-		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: String}
+		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: Number}
 	]
 });
 

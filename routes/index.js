@@ -10,9 +10,10 @@ var editItem 			= require("./Admin/editItem");
 var saveAfterEdit 	= require("./Admin/saveAfterEdit");
 var deleteItem 		= require("./Admin/deleteItem");
 var AddToCart = require("./Client/addItemToCart");
+var RemoveFromCart = require("./Client/removeFromCart");
 var displayCustomers = require("./displayCustomers");
 var displayCustomerCart = require("./Client/displayCustomerCart");
-//var PlaceOrder = require("./PlaceOrder");
+var placeOrder = require("./Client/placeOrder");
 var displayCustomerOrders = require("./displayCustomerOrders");
 //var displayCustomerOrderById = require("./displayCustomerOrderById");
 var admindisplayCustomers = require("./Admin/admindisplayCustomers")
@@ -44,8 +45,8 @@ router.get('/customers',         displayCustomers);
 
 router.get('/customers/:id/cart', displayCustomerCart);
 router.get('/customer/:id/cart/add/:itemid/:itemqty', AddToCart);
-//router.post('/customer/:id/cart/add', AddToCart);
-//router.post('customers/:id/cart', PlaceOrder);
+router.post('/customer/:id/cart/remove/:itemid', RemoveFromCart);
+router.post('/customer/:id/cart/placeOrder', placeOrder);
 
 router.get('/customers/:id/orderlist', displayCustomerOrders);
 
