@@ -8,8 +8,8 @@ var dataTable = require('mongoose-datatable');
 module.exports = {
     //display all items from data collection
 	getItems : function getItems(req , res){
-        	Item.dataTable(req.query, function (err, items) {
-            		res.send(items);
+        	Item.dataTable(req.query, function (err, items) {				
+            		res.send(JSON.stringify(items));
         	});
     	},
     	getCustomers : function getCustomers(req , res){
