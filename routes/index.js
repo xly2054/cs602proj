@@ -25,6 +25,9 @@ var admindeleteCustomerOrders = require("./Admin/admindeleteCustomerOrders")
 //Data Modules
 var DAO = require("./DAO/dataAccess");
 
+//API Module
+var API = require("./API/api");
+
 // router specs
 router.get('/', function(req, res, next) {
   res.redirect('/welcome');
@@ -64,5 +67,13 @@ router.get('/admin/delete/:coid', admindeleteCustomerOrders);
 
 //Data Routes
 router.get('/data/get/items', DAO.getItems);
+
+//API endpoints
+router.get('/api/getitemsjson', API.getItemsJson);
+router.get('/api/getitemsxml', API.getItemsXml);
+router.get('/api/getitembynamejson/:name', API.getItemByNameJson);
+router.get('/api/getitembynamexml/:name', API.getItemByNameXml);
+router.post('/api/getiteminrangejson', API.getItemInRangeJson);
+router.post('/api/getiteminrangexml', API.getItemInRangeXml);
 
 module.exports = router;

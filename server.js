@@ -5,6 +5,9 @@ var util 		= require('util'); //Used to debug - inspect cmd
 var http 		= require('http');
 var path        = require('path');
 
+var swaggerUi = require('swagger-ui-express');
+var swaggerDocument = require('./Routes/API/apidoc.json');
+
 var app = express();
 
 // setup handlebars view engine
@@ -28,15 +31,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Routing
 var routes = require('./routes/index');
 app.use('/', routes);
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(function(req, res) {
     res.status(404);
     res.render('404');
 });
-
-//app.listen(3000, function(){
-//  console.log('http://localhost:3000');
-//});
 
 var server = http.Server(app);
 

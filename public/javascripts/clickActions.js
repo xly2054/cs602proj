@@ -20,5 +20,9 @@ function placeOrder(){
 }
 
 function ManageCustomerOders(){
-    window.location.href = '/admin/customerlist'
+    window.location.href = '/admin/customerlist';
+}
+
+function gotoswagger(){
+    window.location.href = '/swagger';
 }

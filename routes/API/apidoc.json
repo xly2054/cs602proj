@@ -1,0 +1,166 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Fruit Online API overview",
+    "version": "API"
+  },
+  "paths": {
+    "/api/getitemsjson": {
+      "get": {
+        "operationId": "listItemsJSON",
+        "summary": "List All Items in JSON",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          }
+        }
+      }
+    },
+    "/api/getitemsxml": {
+      "get": {
+        "operationId": "listItemsXML",
+        "summary": "List All Items in XML",
+        "produces": [
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          }
+        }
+      }
+    },
+    "/api/getitembynamejson/{Name}": {
+        "get": {
+          "operationId": "GetItemJSON",
+          "summary": "List Items Match the Name in Json",
+          "parameters": [
+            {
+              "name": "Name",
+              "in": "path",
+              "description": "Name of the item",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response"
+            }
+          }
+        }
+      },
+      "/api/getitembynamexml/{Name}": {
+        "get": {
+          "operationId": "GetItemXML",
+          "summary": "List All Items in XML",
+          "parameters": [
+            {
+              "name": "Name",
+              "in": "path",
+              "description": "Name of the item",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "produces": [
+            "text/xml"
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response"
+            }
+          }
+        }
+      },
+      "/api/getiteminrangejson": {
+        "post": {
+          "operationId": "GetItemInRangeJSON",
+          "summary": "List All Items within Price Range Json",
+          "parameters": [
+            {
+              "name": "Range",
+              "in": "body",
+              "description": "Lower range of the search",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["Min","Max"],
+                "properties": [
+                    {
+                        "Min": {
+                            "type": "integer"
+                        },
+                        "Max": {
+                            "type": "integer"
+                        }
+                    }
+                ]
+              },
+              "example": {
+                  "Min": 0,
+                  "Max": 10
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response"
+            }
+          }
+        }
+      },
+      "/api/getiteminrangexml": {
+        "post": {
+          "operationId": "GetItemInRangeXML",
+          "summary": "List All Items within Price Range XML",
+          "parameters": [
+            {
+              "name": "Range",
+              "in": "body",
+              "description": "Lower range of the search",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "required": ["Min","Max"],
+                "properties": [
+                    {
+                        "Min": {
+                            "type": "integer"
+                        },
+                        "Max": {
+                            "type": "integer"
+                        }
+                    }
+                ]
+              },
+              "example": {
+                  "Min": 0,
+                  "Max": 10
+              }
+            }
+          ],
+          "produces": [
+            "text/xml"
+          ],
+          "responses": {
+            "200": {
+              "description": "200 response"
+            }
+          }
+        }
+      }
+  },
+  "consumes": [
+    "application/json"
+  ]
+}
