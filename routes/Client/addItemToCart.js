@@ -19,7 +19,8 @@ module.exports =
           ItemName: item.ItemName,
           ItemDescription: item.ItemDescription,
           ItemPrice: item.ItemPrice,
-          ItemQuantity: item.ItemQuantity
+          ItemQuantity: item.ItemQuantity,
+          ItemRefID : item._id
         });  
         if(err)
           console.log("Error Selecting : %s ", err);
@@ -31,7 +32,8 @@ module.exports =
                 ItemName : doc.ItemName,
                 ItemPrice: doc.ItemPrice,
                 ItemQty :qty,
-                SubTotal : parseFloat(qty * doc.ItemPrice).toFixed(2)
+                SubTotal : parseFloat(qty * doc.ItemPrice).toFixed(2),
+                ItemRefID : doc.ItemRefID
               };
               customer.Order.push(order);
               customer.save(function (err) {

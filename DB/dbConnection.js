@@ -28,15 +28,7 @@ var customerSchema = new Schema({
 	Id: Number,
 	CustomerName: String,
 	Order: [
-		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: Number}
-	]
-});
-
-//Schema for cart document
-var cartSchema = new Schema({
-	cid: String,
-	Order: [
-		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: Number}
+		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: Number, ItemRefID: String}
 	]
 });
 
@@ -44,7 +36,10 @@ var cartSchema = new Schema({
 var orderSchema = new Schema({
 	Id: Number,
 	cid: Number,
-	History: [ {Order : cartSchema }]
+	OrderTotal: Number,
+	Order: [
+		{ItemName: String, ItemPrice: Number, ItemQty: Number, SubTotal: Number, ItemRefID: String}
+	]
 });
 
 
@@ -87,19 +82,6 @@ module.exports = {
 			
 		};
 		model = connection.model("ordermodels", orderSchema);
-		return model;
-	},
-	getCartModel: function getCartModel() {
-		if (connection == null) {
-			console.log("Creating connection and model...");
-			connection = mongoose.createConnection(dbUrl, {
-                auth: {
-                 user: credentials.username,
-                 password: credentials.password,
-                }});
-			
-		};
-		model = connection.model("cartmodels", cartSchema);
 		return model;
 	}
 };
