@@ -26,3 +26,7 @@ function ManageCustomerOders(){
 function gotoswagger(){
     window.location.href = '/swagger';
 }
+
+function cancelEditOrder(){
+    window.location.href = '/admin/customerlist';
+}

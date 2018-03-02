@@ -11,6 +11,7 @@
 				<th>ItemQuantity</th>
                 <th>RefId</th>
 				<th></th>
+                <th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,7 +33,14 @@
 					orderable:      false,
 					data:           null,
 					defaultContent: '<button class="btn btn-dark btn-sm">Add To Cart</button>'
+				},
+				{
+					class : 'Qty',
+					orderable:      false,
+					data:           null,
+					defaultContent: '<input type="Number" id="itemQty" value="1">'
 				}
+
 			]
 			});
 
@@ -41,16 +49,15 @@
 				var qty = document.getElementById('itemQty').value;
 				window.location.href = '/customer/{{custid}}/cart/add/' + refID + '/' + qty;
 			});
+
+			window.onclick = function(event) {
+    			if (event.target == modal) {
+        			modal.style.display = "none";
+    			}
+			};
 		});
 		</script>
 		</tbody>
-		<tfoot>
-			<tr>
-				<td>
-					Item Qty: <input type="Number" id="itemQty" value="1">
-				</td>
-			</tr>
-		</tfoot>
 		</table>
 		</div>
 		<div class="jumbotron">

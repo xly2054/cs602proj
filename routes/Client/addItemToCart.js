@@ -19,8 +19,7 @@ module.exports =
           ItemName: item.ItemName,
           ItemDescription: item.ItemDescription,
           ItemPrice: item.ItemPrice,
-          ItemQuantity: item.ItemQuantity,
-          ItemRefID : item._id
+          ItemQuantity: item.ItemQuantity
         });  
         if(err)
           console.log("Error Selecting : %s ", err);
@@ -33,7 +32,7 @@ module.exports =
                 ItemPrice: doc.ItemPrice,
                 ItemQty :qty,
                 SubTotal : parseFloat(qty * doc.ItemPrice).toFixed(2),
-                ItemRefID : doc.ItemRefID
+                ItemRefID : item._id.toString()
               };
               customer.Order.push(order);
               customer.save(function (err) {

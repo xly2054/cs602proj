@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <form method="post" action='/admin/edit/{{data.oid}}'>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th width="200">Order Id: </td>
+          <td><input type="number" name="oid" required 
+                  value="{{data.oid}}"></td>
+        </tr>
+        <tr>
+          <th>Order Total: </td>
+          <td><input type="float" name="orderTotal" required size="40" 
+                  value="{{data.orderTotal}}"></td>
+        </tr>
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+              <input type="submit" value="SaveOrder" class="btn btn-dark">
+              <input type="button" value="Cancel" class="btn btn-secondary"
+                  class="cancel" onclick="cancelEditOrder()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

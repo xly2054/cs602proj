@@ -1,4 +1,4 @@
-var DB = require('../DB/dbConnection.js');
+var DB = require('../../DB/dbConnection.js');
 var Customer = DB.getCustomerModel();
 
 module.exports = 
@@ -16,7 +16,7 @@ module.exports =
             customerName: customer.CustomerName
       	}
       });
-      res.render('displayCustomersView',
+      res.render('Client/displayCustomersView',
       	{title:"List of Customers", data:results});
     });
 };

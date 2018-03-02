@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// other modules
+//Admin modules
 var displayChoice = require("./displayChoice");
 var displayItems 	= require("./Admin/displayItems");
 var addItem 			= require("./Admin/addItem");
@@ -9,18 +9,24 @@ var saveItem 			= require("./Admin/saveItem");
 var editItem 			= require("./Admin/editItem");
 var saveAfterEdit 	= require("./Admin/saveAfterEdit");
 var deleteItem 		= require("./Admin/deleteItem");
-var AddToCart = require("./Client/addItemToCart");
-var RemoveFromCart = require("./Client/removeFromCart");
-var displayCustomers = require("./displayCustomers");
-var displayCustomerCart = require("./Client/displayCustomerCart");
-var placeOrder = require("./Client/placeOrder");
-var displayCustomerOrders = require("./displayCustomerOrders");
-//var displayCustomerOrderById = require("./displayCustomerOrderById");
 var admindisplayCustomers = require("./Admin/admindisplayCustomers")
 var admindisplayCustomerOrders = require("./Admin/admindisplayCustomerOrders")
-var adminupdateCustomerOrders = require("./Admin/adminupdateCustomerOrders")
-//var adminsaveafterEditCustomerOrders = require("./adminsaveafterEditCustomerOrders")
+var adminViewCustomerOrders = require("./Admin/adminviewCustomerOrders")
 var admindeleteCustomerOrders = require("./Admin/admindeleteCustomerOrders")
+var adminEditOrder = require("./Admin/adminEditOrder")
+var adminSaveOrder = require("./Admin/adminSaveOrder")
+
+//Client modules
+var AddToCart = require("./Client/addItemToCart");
+var RemoveFromCart = require("./Client/removeFromCart");
+var displayCustomers = require("./Client/displayCustomers");
+var displayCustomerCart = require("./Client/displayCustomerCart");
+var placeOrder = require("./Client/placeOrder");
+var displayCustomerOrders = require("./Client/displayCustomerOrders");
+var viewCustomerOderDetail = require("./Client/viewCustomerOrderDetail");
+//var displayCustomerOrderById = require("./displayCustomerOrderById");
+//var adminsaveafterEditCustomerOrders = require("./adminsaveafterEditCustomerOrders")
+
 
 //Data Modules
 var DAO = require("./DAO/dataAccess");
@@ -50,6 +56,7 @@ router.get('/customers/:id/cart', displayCustomerCart);
 router.get('/customer/:id/cart/add/:itemid/:itemqty', AddToCart);
 router.post('/customer/:id/cart/remove/:itemid', RemoveFromCart);
 router.post('/customer/:id/cart/placeOrder', placeOrder);
+router.get('/customer/view/:coid', 	viewCustomerOderDetail);
 
 router.get('/customers/:id/orderlist', displayCustomerOrders);
 
@@ -59,8 +66,9 @@ router.get('/admin/customerlist', admindisplayCustomers);
 
 router.get('/admin/customers/:id/orderlist', admindisplayCustomerOrders);
 
-router.get('/admin/edit/:coid', 	adminupdateCustomerOrders);
-//router.post('/admin/edit/:coid', 	adminsaveafterEditCustomerOrders);
+router.get('/admin/view/:coid', 	adminViewCustomerOrders);
+router.get('/admin/edit/:coid', 	adminEditOrder);
+router.post('/admin/edit/:coid', 	adminSaveOrder);
 
 router.get('/admin/delete/:coid', admindeleteCustomerOrders);
 

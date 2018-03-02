@@ -15,7 +15,7 @@ module.exports =
             coid: admincustomerorder.Id,
       	}
       });
-      res.render('admindisplayCustomerOrdersView',
+      res.render('Admin/admindisplayCustomerOrdersView',
       	{title:"List of Selected Customer Orders", data:results});
     });
 };

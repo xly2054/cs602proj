@@ -4,6 +4,7 @@
 			<thead>
 				<tr>
 					<th>Order Id</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -11,7 +12,9 @@
 					<tr>
 						<td>{{this.coid}}</td>
 						<td>
-							<a href="/customers/{{this.id}}/orderlist">{{this.customerName}}</a>
+							<form>
+  								<input type="button" class="btn btn-dark btn-sm" value="View" onclick="location.href='/customer/view/{{this.coid}}'"/>
+							</form>
 						</td>
 					</tr>
 				{{/each}}

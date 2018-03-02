@@ -16,7 +16,7 @@ module.exports =
             customerName: customer.CustomerName
       	}
       });
-      res.render('admindisplayCustomersView',
+      res.render('Admin/admindisplayCustomersView',
       	{title:"List of Customers", data:results});
     });
 };
